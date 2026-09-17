@@ -2,6 +2,7 @@ package ru.nern.playerladder.mixin.shared;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,6 +29,6 @@ public class EntityMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/EntityType;canSerialize()Z")
     )
     private boolean playerladder$allowRidingPlayers(EntityType instance, Operation<Boolean> original) {
-        return instance == EntityType.PLAYER || original.call(instance);
+        return BuiltInRegistries.ENTITY_TYPE.getKey(instance).getPath().equals("player") || original.call(instance);
     }
 }
