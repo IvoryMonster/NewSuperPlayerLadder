@@ -1,4 +1,4 @@
-package ru.nern.playerladder.mixin.shared;
+package com.ivorymonster.playerladder.mixin.shared;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import ru.nern.playerladder.SharedHandler;
+import com.ivorymonster.playerladder.SharedHandler;
 
 @Mixin(Entity.class)
 public class EntityMixin {

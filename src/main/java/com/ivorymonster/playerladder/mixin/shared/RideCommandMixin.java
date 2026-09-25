@@ -1,4 +1,4 @@
-package ru.nern.playerladder.mixin.shared;
+package com.ivorymonster.playerladder.mixin.shared;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -6,7 +6,7 @@ import net.minecraft.server.commands.RideCommand;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import ru.nern.playerladder.PlayerLadder;
+import com.ivorymonster.playerladder.PlayerLadder;
 
 @Mixin(RideCommand.class)
 public class RideCommandMixin {

@@ -6,23 +6,50 @@
   "rightClickMode.playerladder.config": "Right Click Mode",
   "rightClickMode.playerladder.description": "Action that occurs when you click on a player/entity.",
 
+  "shiftClickMode.playerladder.config": "Shift Click Mode",
+  "shiftClickMode.playerladder.description": "Action that occurs when you shift click on a player/entity.",
+
   "pickUpLimit.playerladder.config": "Pick Up limit",
   "pickUpLimit.playerladder.description": "Limits how many entities a player can pick up.",
 
   "stepUpLimit.playerladder.config": "Step Up limit",
   "stepUpLimit.playerladder.description": "Limits how many entities up a player can go.",
 
-  "allowLivingEntities.playerladder.config": "Allow living entities",
-  "allowLivingEntities.playerladder.description": "Allows riding or picking up any living entity.",
+  "throwStrength.playerladder.config": "Throw Strength",
+  "throwStrength.playerladder.description": "Sets strength of the throw when force dismounting a passenger. Set to zero to disable throwing.",
+
+  "allowForceDismount.playerladder.config": "Allow force dismounting players",
+  "allowForceDismount.playerladder.description": "Allows force dismounting player passengers when shift clicking on the ground or air.",
 
   "dismountOnGameModeChange.playerladder.config": "Dismount on Game Mode change",
   "dismountOnGameModeChange.playerladder.description": "Whether entities should be dismounted from a player when the player's game mode changes(switching to spectator would dismount the entity even if this option is disabled).",
 
-  "allowPlayers.playerladder.config": "Allow players",
-  "allowPlayers.playerladder.description": "Allows riding or picking up any player.",
+  "allowRidingPlayers.playerladder.config": "Allow riding players",
+  "allowRidingPlayers.playerladder.description": "Allows riding any player.",
 
-  "excludedLivingEntities.playerladder.config": "Excluded living entities",
-  "excludedLivingEntities.playerladder.description": "The list of living entities that can't be ridden/picked up. Supports entity tags e.g: #minecraft:dismounts_underwater",
+  "allowPickingUpPlayers.playerladder.config": "Allow picking up players",
+  "allowPickingUpPlayers.playerladder.description": "Allows picking up any player.",
+
+  "requireCrouchToRide.playerladder.config": "Require player crouching to ride",
+  "requireCrouchToRide.playerladder.description": "Requires the (vehicle) player to be sneaking in order for another player to mount them.",
+
+  "allowRidingEntities.playerladder.config": "Allow riding entities",
+  "allowRidingEntities.playerladder.description": "Allows riding any entity (Apart from the excluded list).",
+
+  "allowPickingUpEntities.playerladder.config": "Allow picking up entities",
+  "allowPickingUpEntities.playerladder.description": "Allows picking up any living entity (Apart from the excluded list).",
+
+  "rideEntityBacklist.playerladder.config": "Exclude Riding Entities",
+  "rideEntityBacklist.playerladder.description": "The list of living entities that can't be ridden. Supports entity tags e.g: #minecraft:dismounts_underwater",
+
+  "pickUpEntityBlacklist.playerladder.config": "Exclude Picking Up Entities",
+  "pickUpEntityBlacklist.playerladder.description": "The list of living entities that can't be picked up. Supports entity tags e.g: #minecraft:dismounts_underwater",
+
+  "invertRideEntityList.playerladder.config": "Invert Exclude Riding Entities",
+  "invertRideEntityList.playerladder.description": "Treats the list of excluded riding entities as a whitelist instead of a blacklist.",
+
+  "invertPickUpEntityList.playerladder.config": "Invert Exclude Picking Up Entities",
+  "invertPickUpEntityList.playerladder.description": "Treats the list of excluded",
 
   "rideExtension.playerladder.config": "/ride extension",
   "rideExtension.playerladder.description": "Allows the /ride command to mount entities on top of players.",

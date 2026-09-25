@@ -1,17 +1,18 @@
 {
 	"required": true,
-	"package": "ru.nern.playerladder.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"package": "com.ivorymonster.playerladder.mixin",
+	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"PlayerMixin",
-		"ServerPlayerMixin",
-		"shared.EntityMixin",
-		"shared.RideCommandMixin"
+      "PlayerMixin",
+      "ServerPlayerMixin",
+      "shared.EntityMixin",
+      "shared.RideCommandMixin"
 	],
-	"client": [
-		"shared.ProjectileUtilMixin"
-	],
-	"injectors": {
+    "client": [
+      "client.ProjectileUtilMixin",
+      "client.MinecraftMixin"
+    ],
+  "injectors": {
 		"defaultRequire": 1
 	}
 }

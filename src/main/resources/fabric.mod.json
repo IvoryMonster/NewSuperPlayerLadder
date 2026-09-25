@@ -1,25 +1,30 @@
 {
 	"schemaVersion": 1,
 	"id": "playerladder",
-	"version": "${version}",
-	"name": "Player Ladder",
-	"description": "Adds the ability to ride/pick up other players on a head by right-clicking on them.",
+	"version": "0.8.0",
+	"name": "New Super Player Ladder MC",
+	"description": "Adds the ability to ride/pick up other players and or entities by clicking on them.",
 	"authors": [
+        "IvoryMonster",
 		"ForwarD NerN"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/player-ladder",
-		"sources": "https://github.com/ForwarD-NerN/PlayerLadder"
+		"homepage": "https://modrinth.com/mod/nsplmc",
+		"sources": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/",
+        "issues": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/playerladder/playerladder.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "ru.nern.playerladder.PlayerLadder"
+          "com.ivorymonster.playerladder.PlayerLadder"
 		],
+        "client": [
+          "com.ivorymonster.playerladder.PlayerLadderClient"
+        ],
 		"modmenu": [
-			"ru.nern.playerladder.config.ModMenuIntegration"
+			"com.ivorymonster.playerladder.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -31,5 +36,13 @@
 		"java": ">=25",
 		"fabric-api": "*",
 		"fconfiglib": ">=1.1.1"
-	}
+	},
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/nsplmc",
+        "modmenu.issues": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/issues"
+      }
+    }
+  }
 }
