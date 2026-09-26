@@ -49,7 +49,7 @@
   "invertRideEntityList.playerladder.description": "Treats the list of excluded riding entities as a whitelist instead of a blacklist.",
 
   "invertPickUpEntityList.playerladder.config": "Invert Exclude Picking Up Entities",
-  "invertPickUpEntityList.playerladder.description": "Treats the list of excluded",
+  "invertPickUpEntityList.playerladder.description": "Treats the list of excluded picking up entities as a whitelist instead of a blacklist.",
 
   "rideExtension.playerladder.config": "/ride extension",
   "rideExtension.playerladder.description": "Allows the /ride command to mount entities on top of players.",
