@@ -34,6 +34,7 @@ public class SharedHandler {
     private static final Set<EntityType<?>> entityTypesPickUpList = Sets.newHashSet();
     private static final Set<TagKey<EntityType<?>>> entityTagsPickUpList = Sets.newHashSet();
     private static final Map<UUID, Vec3[]> motionData = new HashMap<>();
+    private static final Map<UUID, Integer> shiftData = new HashMap<>();
 
     public static InteractionResult rideEntity(Player player, Entity newVehicle, Level level, InteractionHand hand) {
         if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND && canRideLiving(newVehicle) && player.getItemInHand(hand).isEmpty()) {
@@ -158,8 +159,19 @@ public class SharedHandler {
             Vec3 previousPosition = playerMotionData[0];
             Vec3 PlayerVelocity = currentPosition.subtract(previousPosition);
             motionData.put(playerUUID, new Vec3[]{currentPosition, PlayerVelocity});
-            if (player.isVehicle() && player.isShiftKeyDown() && !ServerPlayNetworking.canSend((ServerPlayer) player, ClientExistsPacket.TYPE)) {
-                player.getFirstPassenger().stopRiding();
+            if (player.isVehicle() && !ServerPlayNetworking.canSend((ServerPlayer) player, ClientExistsPacket.TYPE)) {
+                if (player.isShiftKeyDown()) {
+                    int shiftTime = shiftData.getOrDefault(playerUUID, 0);
+                    if (shiftTime >= 40) {
+                        player.getFirstPassenger().stopRiding();
+                        shiftData.put(playerUUID, 0);
+                    } else {
+                        shiftTime++;
+                        shiftData.put(playerUUID, shiftTime);
+                    }
+                } else {
+                    shiftData.put(playerUUID, 0);
+                }
             }
         }
     }
