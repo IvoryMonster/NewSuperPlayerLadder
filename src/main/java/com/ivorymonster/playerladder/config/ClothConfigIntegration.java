@@ -57,7 +57,7 @@ public class ClothConfigIntegration {
                 .setSaveConsumer(value -> config().server.allowRidingPlayers = value).build());
 
         serverCategory.addEntry(entryBuilder.startBooleanToggle(Component.translatable("allowPickingUpPlayers.playerladder.config"), config().server.allowPickingUpPlayers)
-                .setTooltip(Component.translatable("allowRidingPlayers.playerladder.description"))
+                .setTooltip(Component.translatable("allowPickingUpPlayers.playerladder.description"))
                 .setSaveConsumer(value -> config().server.allowPickingUpPlayers = value).build());
 
         serverCategory.addEntry(entryBuilder.startBooleanToggle(Component.translatable("requireCrouchToRide.playerladder.config"), config().server.requireCrouchToRide)

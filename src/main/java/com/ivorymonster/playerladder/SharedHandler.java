@@ -2,12 +2,10 @@ package com.ivorymonster.playerladder;
 
 import com.google.common.collect.Sets;
 import com.ivorymonster.playerladder.networking.packet.ClientExistsPacket;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.IdentifierException;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.network.protocol.game.ClientboundSetPassengersPacket;
 import net.minecraft.resources.Identifier;
@@ -17,9 +15,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
@@ -35,6 +31,7 @@ public class SharedHandler {
     private static final Set<TagKey<EntityType<?>>> entityTagsPickUpList = Sets.newHashSet();
     private static final Map<UUID, Vec3[]> motionData = new HashMap<>();
     private static final Map<UUID, Integer> shiftData = new HashMap<>();
+    private static final Map<UUID, Long> lastThrowTime = new HashMap<>();
 
     public static InteractionResult rideEntity(Player player, Entity newVehicle, Level level, InteractionHand hand) {
         if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND && canRideLiving(newVehicle) && player.getItemInHand(hand).isEmpty()) {
@@ -49,7 +46,7 @@ public class SharedHandler {
     }
 
     public static InteractionResult pickUpEntity(Player player, Entity newPassenger, Level level, InteractionHand hand) {
-        if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND && canPickUpLiving(newPassenger) && player.getItemInHand(hand).isEmpty()) {
+        if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND && canPickUpLiving(newPassenger) && player.getItemInHand(hand).isEmpty() && lastThrowTime.getOrDefault(player.getUUID(), 0L) != level.getGameTime()) {
             Entity vehicle = getHighestOrSelf(player, newPassenger, config().server.pickUpLimit);
 
             if(vehicle == null) return InteractionResult.FAIL;
@@ -91,10 +88,8 @@ public class SharedHandler {
 
     public static InteractionResult throwEntity(Player player, Level level) {
         Entity passenger = player.getFirstPassenger();
-        double BlockInteractRange = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE);
-        HitResult blockHitResult = player.pick(BlockInteractRange, 0.0f, false);
-        EntityHitResult entityHitResult = getEntityHitResult(player, BlockInteractRange);
-        if(!level.isClientSide() && blockHitResult.getType() == HitResult.Type.MISS && (entityHitResult == null || entityHitResult.getEntity().getName().getString().equals(passenger.getName().getString())) && canForceDismount(passenger)) {
+        if(!level.isClientSide() && canForceDismount(passenger)) {
+            lastThrowTime.put(player.getUUID(), level.getGameTime());
             var lookVec = player.getLookAngle();
             var throwStrength = config().server.throwStrength;
             passenger.stopRiding();
@@ -234,14 +229,5 @@ public class SharedHandler {
                 SharedHandler.addExcludedEntityType(entry, typeSet);
             }
         }
-    }
-
-    public static EntityHitResult getEntityHitResult(Player player, double range) {
-        Vec3 cameraPos = player.getEyePosition(1.0F);
-        Vec3 viewVec = player.getViewVector(1.0F);
-        Vec3 endPos = cameraPos.add(viewVec.scale(range));
-        AABB boundingBox = player.getBoundingBox().expandTowards(viewVec.scale(range)).inflate(1.0D);
-
-        return ProjectileUtil.getEntityHitResult(player, cameraPos, endPos, boundingBox, (entity) -> !entity.isSpectator() && entity.isPickable(), range);
     }
 }

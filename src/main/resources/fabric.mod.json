@@ -1,17 +1,17 @@
 {
 	"schemaVersion": 1,
 	"id": "playerladder",
-	"version": "0.8.0",
-	"name": "New Super Player Ladder MC",
-	"description": "Adds the ability to ride/pick up other players and or entities by clicking on them.",
+	"version": "0.8.1",
+	"name": "New Super Player Ladder",
+	"description": "Adds the ability to ride/pick up other players or entities by clicking on them.",
 	"authors": [
         "IvoryMonster",
 		"ForwarD NerN"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/nsplmc",
-		"sources": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/",
-        "issues": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/issues"
+		"sources": "https://github.com/IvoryMonster/NewSuperPlayerLadder/",
+        "issues": "https://github.com/IvoryMonster/NewSuperPlayerLadder/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/playerladder/playerladder.png",
@@ -41,7 +41,7 @@
     "modmenu": {
       "links": {
         "modmenu.modrinth": "https://modrinth.com/mod/nsplmc",
-        "modmenu.issues": "https://github.com/IvoryMonster/NewSuperPlayerLadderMC/issues"
+        "modmenu.issues": "https://github.com/IvoryMonster/NewSuperPlayerLadder/issues"
       }
     }
   }

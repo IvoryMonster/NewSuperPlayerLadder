@@ -1,18 +1,20 @@
-# New Super Player Ladder MC
-New and improved fork of [PlayerLadder by ForwarD-NerN](https://github.com/ForwarD-NerN/PlayerLadder).
-Adds the ability to ride/pick up other players (or entities if configured) by clicking on them.
+# New Super Player Ladder
+Updated and improved fork of [Player Ladder](https://github.com/ForwarD-NerN/PlayerLadder) by ForwarD-NerN.
+Adds the ability to ride/pick up other players (or entities if configured) by clicking on them. Additionally, this fork adds the ability to throw passengers, or place them down, as well as more configuration options.
 
 The mod is designed to work mostly server-side, and is not strictly required to be installed on the client.
-Especially as a passenger. However, if not installed client-side, you cannot interact with blocks while a player is on top of you, and some features will not work the same.
+Especially as a passenger. However, if not installed client-side, you cannot interact with blocks while a player is on top of you, and will not be able to throw/place passengers down.
 
-By default, right-clicking on a crouched player/entity will mount them, and shift-clicking will pick them up.\
-If installed client-side, you can force dismount passengers by shift-clicking on a block to place them down, or on the air to throw them.\
+## Controls
+By default, right-clicking on an entity or crouched player with an empty hand will mount them, and shift-clicking will pick them up.\
+If installed client-side, you can force dismount passengers by shift-clicking (with an empty hand) on a block to place them down, or on the air to throw them.\
 If not installed client-side, holding shift for 2 seconds will dismount any passengers.
+## Dependencies
+- [FConfigLib](https://modrinth.com/mod/fconfiglib)
+- (Optional) [Cloth Config API](https://modrinth.com/mod/cloth-config)
+- (Optional) [Mod Menu](https://github.com/TerraformersMC/ModMenu)
 
-Requires [FConfigLib](https://github.com/ForwarD-NerN/fconfiglib)\
-Optionally [Cloth Config](https://github.com/shedaniel/cloth-config) and [Mod Menu](https://github.com/TerraformersMC/ModMenu) for configuration
-
-Modrinth: https://modrinth.com/mod/nsplmc
+### Modrinth: https://modrinth.com/mod/nsplmc
 
 <img width="720" height="720" alt="CityPlayerLadder" src="https://github.com/user-attachments/assets/4f670cb4-50c1-4c53-852a-cb84ab0dd8b9" />
 <img width="720" height="720" alt="BridgePlayerLadder" src="https://github.com/user-attachments/assets/f28452df-4bd2-4530-9f2d-a5cebc1fb470" />
